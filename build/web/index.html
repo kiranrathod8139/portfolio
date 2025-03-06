@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-  
-  <base href="/">
+  <!-- If you are serving your web app from a subdirectory, update the base href -->
+  <base href="/"> <!-- Replace '/' with your base path if necessary -->
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -12,16 +11,41 @@
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-status-bar-style" content="black">
-  <meta name="mobile-web-app-title" content="assignment">
-  <!-- <link rel="touch-icon" href="icons/Icon-192.png">
+  <meta name="mobile-web-app-title" content="KiranKumarRathod">
+  <!-- Add your icon if needed -->
+  <!-- <link rel="apple-touch-icon" href="icons/Icon-192.png"> -->
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/> -->
+  <!-- <link rel="icon" type="image/png" href="favicon.png"/> -->
 
   <title>portfolio</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <!-- This script is injected by flutter build, do not touch -->
+  <script>
+    const serviceWorkerVersion = "4249966986";  // Set the service worker version or leave null
+  </script>
+
+  <!-- This script loads the Flutter engine -->
+  <script hidden src="flutter.js" defer></script>
+
+  <!-- Custom script to initialize and run your Flutter web app -->
+  <script>
+    window.addEventListener('load', function() {
+      // Load the Flutter web app entry point (main.dart.js)
+      _flutter.loader.load({
+        serviceWorker: {
+          serviceWorkerVersion: '"4249966986"', // Use the template token
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          // Initialize the engine and run the app
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();  // Start the app
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
